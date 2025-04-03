@@ -6,7 +6,7 @@ import React from 'react'
 
 const BlogDetail = () => {
     const path = usePathname();
-    const detail = path.replace(/\/blog\//g, '');
+    const detail = path.replace(/\/card\//g, '');
     const cardData = BLOG_POST_DATA_LIST?.filter(obj =>
         obj.title?.toLowerCase()?.replace(/ /g, '-') === detail
     )
