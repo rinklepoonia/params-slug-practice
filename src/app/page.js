@@ -6,10 +6,12 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col gap-40">
       <Tabs />
-      <BlogCard />
-     <BlogDetail/>
+      <div>
+        <BlogCard />
+             <BlogDetail/>
+      </div>
     </div>
   );
 }

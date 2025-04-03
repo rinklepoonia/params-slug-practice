@@ -11,11 +11,11 @@ export default function Tabs() {
     };
     return (
         <div className="p-4">
-            <div className="flex space-x-4 border-b">
+            <div className="flex space-x-4 border-b  overflow-x-scroll">
                 {TABS_DATA_LIST.map((tab, i) => (
                     <button
                         key={i}
-                        className={`py-2 px-4 ${activeTab === tab.title
+                        className={`py-2 px-4 text-nowrap ${activeTab === tab.title
                                 ? "border-b-2 border-blue-500 font-bold"
                                 : "text-gray-500"
                             }`}

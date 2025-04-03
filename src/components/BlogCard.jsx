@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 const BlogCard = () => {
     return (
-        <div className='container max-w-[1248px] mx-auto'>
-            <div className='flex items-center justify-between'>
+        <div className='container max-w-[1248px] mx-auto p-3 *:'>
+            <div className='flex flex-wrap items-center lg:justify-between justify-center gap-3'>
                 {BLOG_POST_DATA_LIST.map((obj, i) => (
                     <Link href={`/card/${obj ? obj.title?.toLowerCase()?.replace(/ /g, '-') : '404'}`} key={i} className='bg-white shadow-lg rounded-lg py-3 px-4 max-w-[300px]'>
                         <Image sizes='100vw' width={200} height={80} className='' src={obj.image} alt='blog-img' />
