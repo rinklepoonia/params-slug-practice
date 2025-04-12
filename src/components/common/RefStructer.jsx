@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
-export const RefStructer = ({ children, open = false, speed = 300,reCalculate }) => {
+export const RefStructer = ({ children, open = false, speed, reCalculate }) => {
     const [maxHeight, setMaxHeight] = useState(0);
     const [isOpen, setIsOpen] = useState(open);
     const itemRef = useRef();
@@ -10,6 +10,7 @@ export const RefStructer = ({ children, open = false, speed = 300,reCalculate })
     useEffect(() => {
         setIsOpen(open);
     }, [open]);
+    
     return (
         <div
             style={{

@@ -1,15 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { RefStructer } from "./common/RefStructer";
+import Icons from "./common/Icons";
 
 const Accordion = () => {
     const [isOpen, setIsOpen] = useState(null);
 
     const ACCORDION_DATA = [
-        { title: "Title 1", content: "Content 1" },
-        { title: "Title 2", content: "Content 4Lorem ipsum dolor sit amet consectetur adipisicing elit. A laboriosam, repellat ad quaerat, cumque consequatur voluptas iure aperiam iste unde eius delectus culpa soluta ullam deserunt natus sunt alias eos.Lorem ipsum dolor sit amet consectetur adipisicing elit. A laboriosam, repellat ad quaerat, cumque consequatur voluptas iure aperiam iste unde eius delectus culpa soluta ullam deserunt natus sunt alias eos.Lorem ipsum dolor sit amet consectetur adipisicing elit. A laboriosam, repellat ad quaerat, cumque consequatur voluptas iure aperiam iste unde eius delectus culpa soluta ullam deserunt natus sunt alias " },
-        { title: "Title 3", content: "Content 4Lorem ipsum dolor sit amet consectetur adipisicing elit. A laboriosam, repellat ad quaerat, cumque consequatur voluptas iure aperiam iste unde eius delectus culpa soluta ullam deserunt natus sunt alias eos.Lorem ipsum dolor sit amet consectetur adipisicing elit. A laboriosam, repellat ad quaerat, cumque consequatur voluptas iure aperiam iste unde eius delectus culpa soluta ullam deserunt natus sunt alias eos.Lorem ipsum dolor sit amet consectetur adipisicing elit. A laboriosam, repellat ad quaerat, cumque consequatur voluptas iure aperiam iste unde eius delectus culpa soluta ullam deserunt natus sunt alias eos.Lorem ipsum dolor sit amet consectetur adipisicing elit. A laboriosam, repellat ad quaerat, cumque consequatur voluptas iure aperiam iste unde eius delectus culpa soluta ullam deserunt natus sunt alias eos.Lorem ipsum dolor sit amet consectetur adipisicing elit. A laboriosam, repellat ad quaerat, cumque consequatur voluptas iure aperiam iste unde eius delectus culpa " },
+        { title: "Nunc pellentesque consectetur", content: "Lorem ipsum dolor sit amet consectetur. Cursus habitant ornare pellentesque egestas. Consectetur blandit justo bibendum quam. Pharetra nulla tortor viverra hendrerit ipsum donec eget venenatis. Lobortis nec augue et sed ut. Blandit convallis eget laoreet urna. A tristique vitae arcu augue mauris vel lacus proin. Tincidunt dui velit faucibus magna nunc porta amet sed. Ornare amet sagittis ut amet facilisis lectus. Amet eu a urna erat hac." },
+        { title: "In donec in tristique integer", content: "Lorem ipsum dolor sit amet consectetur. Cursus habitant ornare pellentesque egestas. Consectetur blandit justo bibendum quam. Pharetra nulla tortor viverra hendrerit ipsum donec eget venenatis. Lobortis nec augue et sed ut. Blandit convallis eget laoreet urna. A tristique vitae arcu augue mauris vel lacus proin. Tincidunt dui velit faucibus magna nunc porta amet sed. Ornare amet sagittis ut amet facilisis lectus. Amet eu a urna erat hac." },
+        { title: "Nunc porta pellentesque", content: "Lorem ipsum dolor sit amet consectetur. Cursus habitant ornare pellentesque egestas. Consectetur blandit justo bibendum quam. Pharetra nulla tortor viverra hendrerit ipsum donec eget venenatis. Lobortis nec augue et sed ut. Blandi " },
+
     ];
+
 
     const toggleAccordion = (index) => {
         if (isOpen === index) {
@@ -31,19 +34,19 @@ const Accordion = () => {
     }, [])
 
     return (
-        <div>
+        <div className="container max-w-[900px] mx-auto">
             {ACCORDION_DATA.map((obj, i) => (
-                <div key={i} className="border border-solid border-white w-full mb-4">
+                <div key={i} className="border border-solid border-white rounded-xl w-full mb-4 ">
                     <button
                         onClick={() => toggleAccordion(i)}
-                        className="relative border-b border-solid border-white w-full p-3 text-start text-white"
+                        className={`relative  w-full  text-start px-4 py-5  ${isOpen === i ? 'bg-red-100 rounded-t-[10px] text-black' : 'bg-black rounded-xl text-white'}`}
                     >
                         {obj.title}
-                        <span className={`absolute end-5 border-r border-b border-solid border-white size-3 ${isOpen === i ? "-rotate-140" : "rotate-45"
-                            }`}></span>
+                        <span className={`absolute end-5 transition-all ease-linear duration-300 ${isOpen === i ? "-rotate-180" : ""
+                            }`}><Icons icon="accordionArrow" /></span>
                     </button>
                     <RefStructer reCalculate={currentScreenWidth} open={isOpen === i} speed={300}>
-                        <p className="text-base text-white p-3">{obj.content}</p>
+                        <p className="text-base text-white pt-3 pb-3 px-4">{obj.content}</p>
                     </RefStructer>
                 </div>
             ))}
